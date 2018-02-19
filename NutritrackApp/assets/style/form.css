@@ -1,0 +1,139 @@
+/*this css file is for the Main Login-Page*/
+
+*{  
+  margin:0;
+  padding:0;
+  font-family: 'Raleway', sans-serif;
+
+}
+
+body {
+  background-color:#167bd7; 
+  width:80%;
+  margin: auto;
+}
+
+#logo-img{
+  padding-top: 40px;
+  margin:auto; 
+  display:block;
+
+}
+
+#logo-main{
+  width:150px;
+  margin:auto; 
+  display:block;
+}
+
+h1{
+  color: white;
+  text-align: center;
+  font-size: 60px;
+}
+
+h2{
+  color: white;
+  font-size: 30px; 
+}
+
+
+#form{
+  background-color:rgba(255,255,255, 0.2);
+  padding:20px 20px;
+  border-radius:5px;
+  height:40%;
+}
+
+p{
+  font-size: 20px; 
+  color: white;
+  font-family: raleway; 
+}
+
+
+
+
+/*web*/
+@media screen and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 1) { 
+    body{
+      max-width: 90%; 
+
+    }
+}
+
+
+@media screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (min-resolution: 192dpi) { 
+    body{
+      max-width: 90%; 
+    }
+}
+
+@media 
+  (min-device-width: 800px) 
+  and (max-device-width: 1280px) {
+    body{
+        max-width: 75%; 
+    }
+
+}
+
+/* Portrait */
+@media 
+  (max-device-width: 800px) 
+  and (orientation: portrait) { 
+    body{
+       max-width: 75%; 
+    }
+
+}
+
+/* Landscape */
+@media 
+  (max-device-width: 1280px) 
+  and (orientation: landscape) { 
+    body{
+       max-width: 75%; 
+    }
+
+}
+
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 2) {
+    body{
+      max-width: 50%; 
+    }
+
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 2) 
+  and (orientation: portrait) { 
+    body{
+      max-width: 50%; 
+    }
+
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 2) 
+  and (orientation: landscape) {
+    body{
+      max-width: 50%; 
+    }
+
+}

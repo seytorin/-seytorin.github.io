@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--@Media queries -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    
+    <!--Css Styling-->
+    <link rel="stylesheet" href="assets/style/landingpage.css" type="text/css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/p5.js"></script>
+   
+    <style type="text/css">
+       #name, #hello{
+          margin: 0
+       }
+
+    </style>
+</head> 
+
+
+<body>
+
+<div class="row justify-content-around">
+            <div class="nav navbar-nav navbar-left" id="branding">
+                <img src="assets/images/logo.png" alt="nutri-track-logo" id="logo-main" width="100px">
+                <h1 class="branding" href="addMeal.html"> Nutri-Track </h1>
+            </div>
+
+            <div class="largenav pull-right">
+             <nav class="navbar navbar-inverse">
+
+            <div class="container-fluid">
+    
+                <ul class="nav nav-tabs" id="rowTab">
+                    <li ><a href="landingpage.html" data-toggle="tab">Reports</a></li>
+                    <li><a href="index.html" data-toggle="tab">home</a></li>
+                    <li class="active"><a href="addMeal.html" data-toggle="tab">Add Meal</a></li>
+           
+            
+    <ul class="nav navbar-nav navbar-right">
+              <li ><a href="profile.html"><span class="glyphicon glyphicon-user"></span>Profile</a></li>
+              <li><a href="index.html"><span class="glyphicon glyphicon-log-out" id="out"></span> Logout</a></li>
+    </ul>
+  </div>
+</nav>
+    </div>
+  </div>
+      <!--Top Border-->
+       <div class="row justify-content-around">
+            <div class="largenav pull-left" id="branding">
+                <img src="assets/images/logo.png" alt="nutri-track-logo" id="logo-main" width="120px">
+                <h1 class="branding"> <a id="braning-none" href="landingpage.html"> Nutri-Track </a> </h1>
+            </div>
+            <div class="largenav pull-right">
+                <a href="profile.html">
+                  <img src="assets/images/profile.png" alt="my profile" width="100px"/>
+                </a>
+                <button type="submit" class="btn btn-secondary btn-lg" id="btnHome">Home </button>
+                
+                <button type="submit" class="btn btn-secondary btn-lg" id="out">Sign out</button>
+            </div>
+        </div>
+
+
+       <!-- <div id ="hello">
+          <button id ="hi">HI</button>
+        </div>
+        
+        <button id="browse">Browse</button> -->
+
+       <!--  <form id="name">
+          First name: <input type="text" class="fname" id ="play2"><br>
+          Last name: <input type="text" name="lname" id="play3"><br><br>
+          <input type="button" value="Submit" id="enterName2">
+
+
+        </form> -->
+      <div class="main-container">
+        <!-- <div class="row">
+          
+            <div class="col-md-4"  id="imager">
+                <img src="assets/images/sampleImg.jpg" alt="default" width="300px" id="default-img">
+              <button id="browse" class="btn btn-dark btn-sm">Change Avatar </button>
+              <label class="myLabel" id="inputLabel">
+              <input type="file" id="fileButton"/>    
+              </label>
+            </div> -->
+            <div class="row">
+            <form id ="name">   
+              <div class="col-md-6 container-right" >
+                  <p> Email: </p>
+                  <div id="exists"></div>
+                  <input Placeholder="email" type="email"  id="play4">
+                  <p> First Name: </p>
+                  <input placeholder="First Name" type="text" id="play2">
+                  <p> Last Name: </p>
+                  <input Placeholder="Last Name" type="text"  id="play3">
+                  <br>
+                  <br>
+                  
+                    <div class="largenav">
+                      <button type="button" class="btn btn-secondary" id= "enterName2">Save Changes </button>
+                    </div> 
+                    <br>
+                  </div>
+              </div>
+            
+
+            <div>
+             <h1> Hello, <span id="show"></span> <span id="show2"></span> </h1>
+            </div>
+            
+            <div>
+              <p> Registered Email: <span id="show3"></span> </p>
+            </div></form>
+          </div>
+        </div>
+    <script type="text/javascript">
+    $( document ).ready(function() {
+            var config = {
+                apiKey: "AIzaSyCXa0zesaAK7mSyPlpbzIApzNBL8j2hnds",
+                authDomain: "neddy-project.firebaseapp.com",
+                databaseURL: "https://neddy-project.firebaseio.com",
+                projectId: "neddy-project",
+                storageBucket: "neddy-project.appspot.com",
+                messagingSenderId: "633541866565"
+  };
+  firebase.initializeApp(config);
+
+    // Create a variable to reference the database.
+    var database = firebase.database();
+    var firstName = "";
+    var lastName = "";
+    var initialInput 
+    var submitButton;
+    var data = ""; 
+    var postID = data.key;
+    var id = "";
+    var file ="";
+    var email = "";
+
+    function logout(){
+      $("#out").on("click", function(){
+        console.log("click");
+        firebase.auth().signOut().then(function() {
+          location.href = "index.html"; 
+  
+
+      }, function(error) {
+          console.log("Error signing out:", error);  
+      });
+      });
+
+    }; 
+    logout();
+
+
+
+    function setup(){
+      //formSubmit();
+      //dbcheck();
+      //ifExists();
+    }
+    setup();
+    function ifExists(){
+                var ref = database.ref("name");
+                ref.on("value", gotData, errData);      
+    };             
+     function gotData(data){
+       console.log(data); 
+    //     var usersInfo = data.val();
+    //     //var keys = Object.keys(usersInfo);
+    //     //console.log(usersInfo);
+    }
+    function errData(err){
+    //     console.log("error")
+    //     console.log(err)
+     }   
+     gotData();
+       
+    var connectedRef = firebase.database().ref(".info/connected");
+        connectedRef.on("value", function(snap) {
+          if (snap.val() === true) {
+            console.log("connected");
+          } else {
+            console.log("not connected");
+          }
+        });
+
+
+ function formSubmit(){
+    $("#enterName2").on("click", function(){
+    event.preventDefault();      
+    firstName = $("#play2").val().trim(); 
+    lastName = $("#play3").val().trim();
+    email = $("#play4").val().trim();
+                      
+    //handle push 
+      //   var data = database.ref().push({
+      //    "usersInfo":{
+      //              firstName: firstName,
+      //              lastName:lastName,
+      //              email:email,
+      //              dateAdded: firebase.database.ServerValue.TIMESTAMP
+      //  }
+      //    });
+                      
+      // var postID = data.key;
+      // console.log(postID);
+
+    //checksnapshot();
+    checkifemailexists;
+    reset;   
+    checkForEmailAddress(); 
+    writeUserData();
+
+    });
+  };
+
+  formSubmit();
+
+  function writeUserData() {
+  var data = firebase.database().ref().push({
+    "usersInfo": {
+      firstName: firstName,
+      lastName:lastName,
+      email:email,
+      dateAdded: firebase.database.ServerValue.TIMESTAMP
+    } 
+   });
+  var key = data.key;
+}
+function checkifemailexists(){
+//   database.ref().child("usersInfo").orderByChild("email").once("value", function(snapshot) { 
+//    var email = snapshot.val();
+//    console.log(email);
+//    if (email){
+//        $("#show4").text("This email is already taken");
+//    }
+// });
+
+database.ref().child("usersInfo").orderByChild("email").equalTo("buy@gmail.com").once("value",function(snapshot)  {
+    var userData = snapshot.val();
+    if (userData){
+      console.log("exists!");
+    }
+});
+}
+
+checkifemailexists();
+  function reset() {
+    $("#name").reset();
+};
+
+function checkForEmailAddress(email) {
+  if (!email) return false
+
+  // Replace '.' (not allowed in a Firebase key) with ',' (not allowed in an email address)
+  email = email.toLowerCase();
+  email = email.replace(/\./g, ',');
+  return email;
+}
+function checksnapshot(email){
+   database.ref().on("date_added", function(data) {      
+   // Log everything that's coming out of snapshot 
+      var usersInfo = data.val();
+    console.log(data.val()); 
+    var keys = Object.keys(usersInfo);
+    console.log(keys);
+    console.log(data.val().usersInfo.email);
+    var email = data.val().usersInfo.email
+    if(email){
+      $("#exists").text("This email is already taken");
+    }
+        
+    // Change the HTML to reflect      
+    $("#play2").text("FirstName: " + data.val().firstName);  
+    $("#play3").text(data.val().lastName);        
+     // Handle the errors   
+      }, 
+      function(errorObject) {console.log("Errors handled: " + errorObject.code);   
+       });
+ };
+ //checksnapshot(); 
+
+function dbcheck(){
+       database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot) {            
+       var sv = snapshot.val();      
+            
+       console.log(sv.usersInfo.dateAdded); 
+       console.log(sv.usersInfo.lastName);
+                 // Change the HTML to reflect     
+        $("#show").text(snapshot.val().usersInfo.firstName); 
+         $("#show2").text(snapshot.val().usersInfo.lastName);
+         $("#show3").text(snapshot.val().usersInfo.email);     
+   });
+   };
+   dbcheck();
+ }); 
+
+
+</script>
+<script src="assets/js/pro.js" type="text/javascript"></script>
+</body>
+</html>

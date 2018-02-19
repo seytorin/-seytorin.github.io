@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title> Track your Nutrients! </title>
+    
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+    <!--Css Styling-->
+    <link rel="stylesheet" href="assets/style/landingpage.css" type="text/css">
+    
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500" rel="stylesheet">
+
+    <!--Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+
+    <!--Moment Js--> 
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+       
+
+    <!--Fevicon-->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+       
+
+</head>
+
+<body>
+   
+  <div class="row justify-content-around">
+        <div class="largenav pull-right" style="width:100%; margin:0px;">
+                <nav class="navbar navbar-inverse" style="background-color: white;">
+                    <div class="container-fluid">
+    
+                <ul class="nav nav-tabs" id="rowTab">
+                    <li ><a href="landingpage.html" data-toggle="tab">Tracker</a></li>
+                    <li><a href="index.html" data-toggle="tab">home</a></li>
+                    <li class="active"><a href="addMeal.html" data-toggle="tab">Add Meal</a></li>
+                
+                <ul class="nav navbar-nav navbar-right">
+                    <li ><a href="profile.html"><span class="glyphicon glyphicon-user"></span>Profile</a></li>
+                    <li><a href="index.html"><span class="glyphicon glyphicon-log-out" id="out"></span> Logout</a></li>
+                </ul>
+                    </div>
+                </nav>
+        </div>
+  </div>
+    <!--header--> 
+    <div class="container-fluid">
+        <div class="row justify-content-around">
+            <div class="largenav pull-left">
+                <!--Header Logo--> 
+                <img src="assets/images/logo.png" alt="nutri-track-logo" id="logo-main" width="120px">
+                <!--Header App Name--> 
+                <h1 class="branding"> Nutri-Track </h1>
+            </div>
+            
+            <!-- Profile Button--> 
+            <div class="largenav pull-right">
+                <a href="profile.html">
+                  <img src="assets/images/profile.png" alt="my profile" id = "profilepicture" width="100px"/>
+                </a>
+                  <a href="addMeal.html"> <button type="submit" class="btn btn-secondary btn-lg" id="btn-add-meal-page">Add Meal</button></a>
+             
+                <button type="submit" class="btn btn-secondary btn-lg" id="btnLogout">Sign out</button>
+            </div>
+        </div>
+        
+        <div class="main-container">
+      
+            <div class="row justify-content-around">
+                <div class="col-4">
+                    <form class="form-inline" action="/action_page.php">
+                        <div class="form-group">
+                            <label for="report">From :</label>
+                            <input type="date" class="form-control" id="reportFrom">
+                            <script type="text/javascript">
+                            document.getElementById('reportFrom').value = Date();
+                            </script>
+                        </div>
+                        <div class="form-group">
+                            <label for="report">To:</label>
+                            <input type="date" class="form-control" id="reportTo">
+                            <script type="text/javascript">
+                            document.getElementById('reportTo').value = Date();
+                            </script>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg" id="reportGen-btn">Generate</button>
+                        <button type="reset" value="Reset" class="btn btn-primary btn-lg" id="reset">Reset</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="row row3" id="graphic-containers">
+                
+                <div class="col col-lg-5">
+                    <img src="assets/images/spoon3.png" alt="spoon3" id = "spoon3" width=650px/>
+                </div>
+                
+               <div class="col col-lg-4">
+                    <canvas id="myChart" width="200" height="200"></canvas>
+                </div>
+            </div>    
+             
+             <div class ="col-sm-12">
+                <div class="row" id="table">
+                            <div id = "tableHeader"></div>
+                            <div class="tbl-content" id="itemName"></div>
+                            <div id="total"></div>
+                        </div>
+                </div>
+                
+                
+               <a href="addMeal.html"> <button type="submit" class="btn btn-secondary btn-lg" id="btn-add-meal-page">Add Meal</button></a>
+
+                
+            </div>
+        
+            
+           
+          
+        </div> 
+
+
+    <!--JQuery-->
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+    
+    <!--JavaScript-->
+  <script src="assets/js/dashboard.js" type="text/javascript" ></script>
+
+
+</body>
+</html>

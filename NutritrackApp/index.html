@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title> Nutri-Track </title>
+  <!--Media Queries-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!--Bootstrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  
+  <!--Css Styling-->
+  <link rel="stylesheet" href="assets/style/form.css" type="text/css">
+  
+  <!-- Google Fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500" rel="stylesheet">
+  
+  <!--Firebase-->
+  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+  
+
+    <!--import Materialize--> 
+  <link href="assets/style/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+</head>
+
+<body>
+
+<div class="row justify-content-around">
+        <div class="largenav pull-right" style="width:100%; margin:0px;">
+                <nav class="navbar navbar-inverse" style="background-color: white;">
+                    <div class="container-fluid">
+    
+                <ul class="nav nav-tabs" id="rowTab">
+                    <li ><a href="landingpage.html" data-toggle="tab">Tracker</a></li>
+                    <li><a href="index.html" data-toggle="tab">home</a></li>
+                    <li class="active"><a href="addMeal.html" data-toggle="tab">Add Meal</a></li>
+                
+                <ul class="nav navbar-nav navbar-right">
+                    <li ><a href="profile.html"><span class="glyphicon glyphicon-user"></span>Profile</a></li>
+                    <li><a href="index.html"><span class="glyphicon glyphicon-log-out" id="out"></span> Logout</a></li>
+                </ul>
+                    </div>
+                </nav>
+        </div>
+  </div>
+  <!-- Logo Image  -->
+      <div id="logo-img"> 
+        <img src="assets/images/logo.png" alt="nutri-track-logo" id="logo-main">
+      </div>
+  
+      <div id="app-name">
+        <h1> Nutri-Track</h1>
+      </div>
+  
+       <!-- Login Form -->
+      <div class="container">
+    
+      <div id="form">
+      
+        <form>
+          
+
+          <!-- <h2 class="registerName"> Name </h2> -->
+          <div class="input-field col s3">
+          <i class="material-icons prefix registerName">account_circle</i>
+          <input id="txtName" type="text" class="validate registerName">
+          <label for="txtName" class="registerName">First Name</label>
+          </div>
+        
+          <!-- <h2> Email Address </h2> -->
+          
+          <div class="input-field col s3">
+            <i class="large material-icons prefix">email</i>
+            <label for="input-email">Email: </label>
+            <input type="email" id="txtEmail" class="validate"> 
+          </div>
+
+          <div class="input-field col s3">
+            <i class="large material-icons prefix">lock</i>
+            <label for="input-email">Password: </label>
+            <input type="password" id="txtPassword" class="validate"> 
+          </div>
+         <!--  <button type="submit" value="Register"> -->
+          
+          <br>
+          <button id="btnLogin" class="btn btn-secondary"> 
+            Log in
+          </button>
+
+          <button id="btnSignUp" class="btn btn-secondary"> 
+            Register
+          </button>
+          
+          <br>
+          <p> To Register with NutriTrack, Click create New Account </p>
+          
+          <button id="btnRegiter" class="btn btn-action"> 
+            Create New Account  
+          </button>
+        
+        </form>
+    
+    </div>
+  </div>
+  
+  <!--JQuery-->
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+  
+  <!--Javascript -->  
+  <script src="assets/js/login.js" type="text/javascript" ></script>
+
+  <!--BootBox Alerts Framework -->  
+  <script src="assets/js/bootbox.min.js" type="text/javascript" ></script>
+
+    <!--ImportMaterialize.jss-->
+  <script src="assets/js/materialize.js"></script>
+  
+  <script src="assets/js/init.js"></script>
+
+
+</body>
+
+</html>

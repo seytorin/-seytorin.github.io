@@ -43,7 +43,7 @@ function logout(){
     event.preventDefault();
     console.log('logged Out');
     location.href = "index.html"
-    alert('logged out');
+    // alert('logged out');
 }
 
 //handles current signin user
@@ -268,52 +268,54 @@ firebase.auth().onAuthStateChanged(function(user) {
                     }); // my chart
                 }
                     $("#reset").on("click", function(event){ 
-                        $(".tbl-content").empty();
-                        $("#total").empty();
-                        cal = 0;
-                        carb = 0;
-                        fat = 0;
-                        pro = 0;
-                       var ctx = document.getElementById("myChart");
-                        var myChart = new Chart(ctx, {
-                        type: 'polarArea',
-                        data: {
-                            labels: ["Calories", "Carbohydrates", "Fats", "Protein", "Sodium",],
-                            datasets: [{
-                                label: '# of Votes',
-                                data: [0, 0, 0, 0, 0, ],
-                                backgroundColor: [
-                                    'rgba(255, 99, 132, 1)',
-                                    'rgba(54, 162, 235, 1)',
-                                    'rgba(255, 206, 86, 1)',
-                                    'rgba(75, 192, 192, 1)',
-                                    'rgba(153, 102, 255, 1)',
-                                    'rgba(255, 159, 164, 1)',
-    
-                                ],
-                                borderColor: [
-                                    'rgba(0,0,0,1)',
-                                    'rgba(0,0,0,1)',
-                                    'rgba(0,0,0,1)',
-                                    'rgba(0,0,0,1)',
-                                    'rgba(0,0,0,1)',
-                                    'rgba(0,0,0,1)',
-                                  
-                                ],
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            scales: {
-                                yAxes: [{
-                                    ticks: {
-                                        beginAtZero:true
-                                    }
-                                }]
-                            }
-                        }
-                    }); // my chart
+                        location.href="landingPage.html"; 
                     }); 
+                    //     $(".tbl-content").empty();
+                    //     $("#total").empty();
+                    //     cal = 0;
+                    //     carb = 0;
+                    //     fat = 0;
+                    //     pro = 0;
+                    //    var ctx = document.getElementById("myChart");
+                    //     var myChart = new Chart(ctx, {
+                    //     type: 'polarArea',
+                    //     data: {
+                    //         labels: ["Calories", "Carbohydrates", "Fats", "Protein", "Sodium",],
+                    //         datasets: [{
+                    //             label: '# of Votes',
+                    //             data: [0, 0, 0, 0, 0, ],
+                    //             backgroundColor: [
+                    //                 'rgba(255, 99, 132, 1)',
+                    //                 'rgba(54, 162, 235, 1)',
+                    //                 'rgba(255, 206, 86, 1)',
+                    //                 'rgba(75, 192, 192, 1)',
+                    //                 'rgba(153, 102, 255, 1)',
+                    //                 'rgba(255, 159, 164, 1)',
+    
+                    //             ],
+                    //             borderColor: [
+                    //                 'rgba(0,0,0,1)',
+                    //                 'rgba(0,0,0,1)',
+                    //                 'rgba(0,0,0,1)',
+                    //                 'rgba(0,0,0,1)',
+                    //                 'rgba(0,0,0,1)',
+                    //                 'rgba(0,0,0,1)',
+                                  
+                    //             ],
+                    //             borderWidth: 1
+                    //         }]
+                    //     },
+                    //     options: {
+                    //         scales: {
+                    //             yAxes: [{
+                    //                 ticks: {
+                    //                     beginAtZero:true
+                    //                 }
+                    //             }]
+                    //         }
+                    //     }
+                    // }); // my chart
+                    // }); 
 
                  
            

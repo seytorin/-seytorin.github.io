@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     
     <!--Css Styling-->
-    <link rel="stylesheet" href="-seytorin.github.io/NutritrackApp/assets/style/landingpage.css" type="text/css">
+    <link rel="stylesheet" href="assets/style/landingpage.css" type="text/css">
     
     <!-- Google Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500" rel="stylesheet">
@@ -27,56 +27,50 @@
 
     <!--Fevicon-->
     <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+	
+	<!--icon Family-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
        
 
 </head>
 
 <body>
    
-  <div class="row justify-content-around">
-        <div class="largenav pull-right" style="width:100%; margin:0px;">
-                <nav class="navbar navbar-inverse" style="background-color: white;">
-                    <div class="container-fluid">
-    
-                <ul class="nav nav-tabs" id="rowTab">
-                    <li ><a href="landingpage.html" data-toggle="tab">Tracker</a></li>
-                    <li><a href="index.html" data-toggle="tab">home</a></li>
-                    <li class="active"><a href="addMeal.html" data-toggle="tab">Add Meal</a></li>
-                
-                <ul class="nav navbar-nav navbar-right">
-                    <li ><a href="profile.html"><span class="glyphicon glyphicon-user"></span>Profile</a></li>
-                    <li><a href="index.html"><span class="glyphicon glyphicon-log-out" id="out"></span> Logout</a></li>
-                </ul>
-                    </div>
-                </nav>
-        </div>
-  </div>
     <!--header--> 
     <div class="container-fluid">
-        <div class="row justify-content-around">
-            <div class="largenav pull-left">
-                <!--Header Logo--> 
-                <img src="assets/images/logo.png" alt="nutri-track-logo" id="logo-main" width="120px">
-                <!--Header App Name--> 
-                <h1 class="branding"> Nutri-Track </h1>
-            </div>
-            
-            <!-- Profile Button--> 
-            <div class="largenav pull-right">
-                <a href="profile.html">
-                  <img src="assets/images/profile.png" alt="my profile" id = "profilepicture" width="100px"/>
-                </a>
-                  <a href="addMeal.html"> <button type="submit" class="btn btn-secondary btn-lg" id="btn-add-meal-page">Add Meal</button></a>
-             
-                <button type="submit" class="btn btn-secondary btn-lg" id="btnLogout">Sign out</button>
-            </div>
+        <div class="row justify-content-around">                
+        	<img src="assets/images/logo.png" alt="nutri-track-logo" id="logo-main" width="120px">
+        	<h1 class="branding"> Nutri-Track </h1>
         </div>
-        
+            
+            <nav class="navbar navbar-dark bg-dark" style="background-color:#fff;">
+            	<div class="largenav pull-right">
+            	
+            	<ul class="nav nav-tabs">
+					  <li class="nav-item">
+					    <a class="nav-link active" href="landingPage.html" id="btnHome"><i class="material-icons">home</i> Home</a>
+					  </li>
+
+					  <li class="nav-item">
+					    <a class="nav-link" href="addMeal.html" id="btn-add-meal-page"><i class="material-icons">add_circle</i>Add Meal</a>
+					  </li>
+
+					  <li class="nav-item">
+					    <a class="nav-link" href="profile.html" id="myProfile"><i class="material-icons">account_circle</i> My Profile</a>
+					  </li>
+
+					  <li class="nav-item">
+					    <a class="nav-link" href="index.html" id="btnLogout"><i class="material-icons right">lock_outline</i> Sign Out</a>
+					  </li>
+				</ul>
+			</div>
+		</nav>
+
         <div class="main-container">
       
             <div class="row justify-content-around">
                 <div class="col-4">
-                    <form class="form-inline" action="/action_page.php">
+                    <form class="form-inline">
                         <div class="form-group">
                             <label for="report">From :</label>
                             <input type="date" class="form-control" id="reportFrom">
@@ -92,18 +86,18 @@
                             </script>
                         </div>
                         <button type="submit" class="btn btn-primary btn-lg" id="reportGen-btn">Generate</button>
-                        <button type="reset" value="Reset" class="btn btn-primary btn-lg" id="reset">Reset</button>
+                        <a href="landingPage.html"> <button type="reset" value="Reset" class="btn btn-primary btn-lg" id="reset">Reset</button> </a>
                     </form>
                 </div>
             </div>
             
             <div class="row row3" id="graphic-containers">
                 
-                <div class="col col-lg-5">
+                <div class="col col-lg-6">
                     <img src="assets/images/spoon3.png" alt="spoon3" id = "spoon3" width=650px/>
                 </div>
                 
-               <div class="col col-lg-4">
+               <div class="col col-lg-6">
                     <canvas id="myChart" width="200" height="200"></canvas>
                 </div>
             </div>    
@@ -116,16 +110,8 @@
                         </div>
                 </div>
                 
-                
-               <a href="addMeal.html"> <button type="submit" class="btn btn-secondary btn-lg" id="btn-add-meal-page">Add Meal</button></a>
-
-                
-            </div>
-        
-            
-           
-          
-        </div> 
+        </div>      
+    </div> 
 
 
     <!--JQuery-->

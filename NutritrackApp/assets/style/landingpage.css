@@ -179,11 +179,10 @@ td{
   padding:10px; 
 }
 
-.input:not([type]){
-  
-
-}
-
+/*#myChart{
+ position:absolute;
+ left:300px;
+}*/
 
 
 }

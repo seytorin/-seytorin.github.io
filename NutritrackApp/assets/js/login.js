@@ -49,8 +49,8 @@ $('#btnRegiter').on('click', function(){
     var auth = firebase.auth(); 
     // sign in 
     var promise = auth.signInWithEmailAndPassword(email, pass); 
-    promise.catch(e => console.log(e.message)); 
-    alert("Logging in"); 
+    promise.catch(e => alert(e.message)); 
+    console.log("Logging in");
   }); 
 
 //Hanldes SignUP
@@ -58,7 +58,7 @@ $('#btnRegiter').on('click', function(){
     //Get email and pass
     //TO DO: check for real emails 
     event.preventDefault(); 
-    alert("You've Signed up"); 
+    // alert("You've Signed up"); 
     var email = txtEmail.value; 
     var pass = txtPassword.value; 
     var auth = firebase.auth(); 

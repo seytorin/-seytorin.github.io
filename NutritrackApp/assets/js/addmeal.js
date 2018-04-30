@@ -98,31 +98,34 @@ firebase.auth().onAuthStateChanged(function(user) {
                 }).done(function(response) {
                     var results2 = response;
                     cal = response.nf_calories;
-                    fat = response.nf_total_fat;
-                    carb = response.nf_total_carbohydrate; 
-                    pro = response.nf_total_protein;
+                    sug = response.nf_sugars;
                     sodi = response.nf_sodium;
+                    fat = response.nf_total_fat;
+                    pro = response.nf_protein; 
                     itemName = response.item_name; 
+                    carb = response.nf_total_carbohydrate;
 
 
-                $("#food").html('<h4>' + 'Meal Added: '+ '</h4>'+ '<h5>' + itemName+ '</h5>'
-                    + '<h5>' +'Total Calorie Intake: ' + cal + '</h5>'
-                    + '<h5>' + 'Total Fat Intake: ' + fat +  ' gms' + '</h5>'
+                $("#food").html('<h4>' + 'Food consumed: '+ '</h4>'+ '<h5>' + itemName+ '</h5>'
+                    + '<h5>' +'Total Calories: ' + cal + '</h5>'
+                    + '<h5>' + 'Total Fat: ' + fat +  ' gms' + '</h5>'
                     + '<h5>' + 'Total Protein Intake: ' + pro +  ' gms' + '</h5>'
-                    + '<h5>' + 'Total Carb Intake:' + carb +  ' gms' + '</h5>'
-                    + '<h5>' + 'Total Sodium Intake:  ' + sodi +  ' gms' + '</h5>'
+                    + '<h5>' + 'Total Carbs Consumed:' + carb +  ' gms' + '</h5>'
+                    + '<h5>' + 'Sugar:  ' + sug +  ' gms' + '</h5>'
                     );
 
                 console.log('Food consumed: ' + itemName); 
                 console.log('Calories consumed: ' + cal);
+                console.log('Sugar consumed: ' + sug + ' gms'); 
                 console.log('Sodium consumed: ' + sodi + ' gms'); 
                 console.log('Fat consumed: ' + fat + ' gms'); 
                 console.log('Protein Intake: ' + pro + ' gms'); 
                 console.log('Carbs consumed: ' + carb + ' gms'); 
 
-                 newMeal = {
+                var newMeal = {
                     item:item,
                     calories:cal,
+                    sug:sug,
                     sodium:sodi,
                     fat:fat,
                     carbs:carb,
@@ -136,41 +139,44 @@ firebase.auth().onAuthStateChanged(function(user) {
                 var myChart = new Chart(ctx, {
                         type: 'polarArea',
                         data: {
-                            labels: ["Calories", "Carbohydrates", "Fats", "Protein", "Sodium",],
-                            datasets: [{
-                                label: '# of Votes',
-                                data: [cal.toFixed(0), carb.toFixed(0), fat.toFixed(0), pro.toFixed(0), sodi.toFixed(0), ],
-                                backgroundColor: [
-                                    'rgba(255, 99, 132, 1)',
-                                    'rgba(54, 162, 235, 1)',
-                                    'rgba(255, 206, 86, 1)',
-                                    'rgba(75, 192, 192, 1)',
-                                    'rgba(153, 102, 255, 1)',
-                                    'rgba(255, 159, 164, 1)',
-    
-                                ],
-                                borderColor: [
-                                    'rgba(0,0,0,1)',
-                                    'rgba(0,0,0,1)',
-                                    'rgba(0,0,0,1)',
-                                    'rgba(0,0,0,1)',
-                                    'rgba(0,0,0,1)',
-                                    'rgba(0,0,0,1)',
-                                  
-                                ],
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            scales: {
-                                yAxes: [{
-                                    ticks: {
-                                        beginAtZero:true
+                        labels: ["Calories", "Sugar", "Sodium", "Fats", "Protein", "Carbs"],
+                        datasets: [{
+                        label: '# of Votes',
+                        data: [cal, sug, sodi, fat, pro,carb],
+                        backgroundColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 164, 1)',
+                
+                        ],
+                        borderColor: [
+                        'rgba(0,0,0,1)',
+                        'rgba(0,0,0,1)',
+                        'rgba(0,0,0,1)',
+                        'rgba(0,0,0,1)',
+                        'rgba(0,0,0,1)',
+                        'rgba(0,0,0,1)',
+                        ],
+                          borderWidth: 1
+                        }]
+                    },
+                    options: {
+                            legend: {
+                                
+                                    scales: {
+                                        yAxes: [{
+                                            ticks: {
+                                                beginAtZero:true, 
+                                                fontColor:'white'
+                                            }
+                                        }]
                                     }
-                                }]
+                                }    
                             }
-                        }
-                    }); // my  chart
+                    }); // my chart
                 });  //2nd Ajax
             }); //1st Ajax
         }); //add meal button 
@@ -182,11 +188,10 @@ firebase.auth().onAuthStateChanged(function(user) {
             $('#itemName').show(); 
             $("#tableHeader").html("<div class='tbl-header'><table cellpadding='0' cellspacing='0' border='0'><thead><tr>" + 
                 "<th>" + "Meal" + 
-                "</th><th>" + "Calories(kcal)" + 
-                "</th><th>" + "Fat(g)" + 
-                "</th><th>" + "Protein(g) " + 
-                "</th><th>" + "Carb(g)" +
-                "</th><th>" + "Sodium(g)" +  
+                "</th><th>" + "Calories -kcal" + 
+                "</th><th>" + "Carbs -gms" + 
+                "</th><th>" + "Sodium -gms " + 
+                "</th><th>" + "Fat - gms" + 
                 "</th><th>" + "Date" + 
                 "</th></tr></thead></table></div>"); 
         });
@@ -212,7 +217,6 @@ firebase.auth().onAuthStateChanged(function(user) {
                             childSnapshot.val().calories + "</td>" + "<td>" + 
                             childSnapshot.val().carbs + "</td>" + "<td>" + 
                             childSnapshot.val().sodium + "</td>" + "<td>" + 
-                             childSnapshot.val().protein + " (g)" + "</td>" + "<td>" + 
                             childSnapshot.val().fat + "</td>" + "<td>" + 
                             childSnapshot.val().time + "</td>" + " </td></tr></tbody></table>");
                     }

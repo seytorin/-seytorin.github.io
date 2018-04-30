@@ -27,45 +27,40 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
 
+    <!--icon Family-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 </head>
 
 <body>
-   <div class="row justify-content-around">
-        <div class="largenav pull-right" style="width:100%; margin:0px;">
-                <nav class="navbar navbar-inverse" style="background-color: white;">
-                    <div class="container-fluid">
-    
-                <ul class="nav nav-tabs" id="rowTab">
-                    <li ><a href="landingpage.html" data-toggle="tab">Tracker</a></li>
-                    <li><a href="index.html" data-toggle="tab">home</a></li>
-                    <li class="active"><a href="addMeal.html" data-toggle="tab">Add Meal</a></li>
-                
-                <ul class="nav navbar-nav navbar-right">
-                    <li ><a href="profile.html"><span class="glyphicon glyphicon-user"></span>Profile</a></li>
-                    <li><a href="index.html"><span class="glyphicon glyphicon-log-out" id="out"></span> Logout</a></li>
-                </ul>
-                    </div>
-                </nav>
-        </div>
-  </div>
-    <!--Logo Image-->
     <div class="container-fluid">
-        <div class="row justify-content-around">
-            <div class="largenav pull-left" id="branding">
-                <img src="assets/images/logo.png" alt="nutri-track-logo" id="logo-main" width="120px">
-                <h1 class="branding"> Nutri-Track </h1>
-            </div>
-
-            <div class="largenav pull-right">
-                <a href="profile.html">
-
-                  <img src="assets/images/profile.png" alt="my profile" width="100px"/>
-                </a>
-                 <a href="landingPage.html"> <button type="submit" class="btn btn-secondary btn-lg" id="btnHome">Home </button> </a>
-
-                <button type="submit" class="btn btn-secondary btn-lg" id="btnLogout">Sign out</button>
-            </div>
+        <div class="row justify-content-around">                
+            <img src="assets/images/logo.png" alt="nutri-track-logo" id="logo-main" width="120px">
+            <h1 class="branding"> Nutri-Track </h1>
         </div>
+            
+            <nav class="navbar navbar-dark bg-dark" style="background-color:#fff;">
+                <div class="largenav pull-right">
+                
+                <ul class="nav nav-tabs">
+                      <li class="nav-item">
+                        <a class="nav-link active" href="landingPage.html" id="btnHome"><i class="material-icons">home</i> Home</a>
+                      </li>
+
+                      <li class="nav-item">
+                        <a class="nav-link" href="addMeal.html" id="btn-add-meal-page"><i class="material-icons">add_circle</i>Add Meal</a>
+                      </li>
+
+                      <li class="nav-item">
+                        <a class="nav-link" href="profile.html" id="myProfile"><i class="material-icons">account_circle</i> My Profile</a>
+                      </li>
+
+                      <li class="nav-item">
+                        <a class="nav-link" href="index.html" id="btnLogout"><i class="material-icons right">lock_outline</i> Sign Out</a>
+                      </li>
+                </ul>
+            </div>
+        </nav>
         
         <div class="meal-container">
 
